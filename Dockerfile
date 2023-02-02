@@ -20,6 +20,6 @@ WORKDIR /home
 LABEL INSTALL="/usr/bin/podman run --env IMAGE=IMAGE --rm --privileged -v \${PWD}/:/host IMAGE /bin/bash /container/label-install"
 LABEL UNINSTALL="/usr/bin/podman run --rm --privileged -v \${PWD}/:/host IMAGE /bin/bash /container/label-uninstall"
 
-#ENTRYPOINT [ "/container/entrypoint.sh" ]
-#CMD [""]
+ENTRYPOINT [ "/container/entrypoint.sh" ]
+CMD ["/bin/bash"]
 
