@@ -1,0 +1,26 @@
+#!/bin/sh
+copy_to_usr_local_bin() {
+SCRIPT=$1
+if [ -d /host/usr/local/bin ]; then
+        TARGET=/host/usr/local/bin
+elif [ -d /host/bin ] ; then
+        TARGET=/host/bin
+else
+        echo "could not determine copy target"
+        exit 1
+fi
+
+if [ ! -e ${TARGET}/${SCRIPT} ]; then
+        echo "copy /container/${SCRIPT} in ${TARGET}/"
+        cp -av /container/${SCRIPT} ${TARGET}/
+else
+        echo "${TARGET}/${SCRIPT} already exist, will not update it"
+fi
+}
+
+if [ ! -e ${TARGET}/${SCRIPT} ]; then
+        echo "Failed to create ${TARGET}/${SCRIPT}"
+        exit 1
+fi
+echo ${1}
+copy_to_usr_local_bin dev-env

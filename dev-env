@@ -1,0 +1,2 @@
+#! /bin/bash
+podman run  -it -v $(pwd):/home  -v ~:/root --rm  dev-env /bin/bash
