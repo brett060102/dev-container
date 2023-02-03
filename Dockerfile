@@ -15,7 +15,7 @@ COPY label-install /container
 COPY label-uninstall /container
 
 
-WORKDIR /home
+WORKDIR /work
 
 LABEL INSTALL="/usr/bin/podman run --env IMAGE=IMAGE --rm --privileged -v \${PWD}/:/host IMAGE /bin/bash /container/label-install"
 LABEL UNINSTALL="/usr/bin/podman run --rm --privileged -v \${PWD}/:/host IMAGE /bin/bash /container/label-uninstall"

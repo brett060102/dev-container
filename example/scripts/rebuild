@@ -1,0 +1,5 @@
+#! /bin/bash
+podman build . -t dev-env
+(cd ~;podman container runlabel uninstall dev-env)
+(cd ~;podman container runlabel install dev-env)
+

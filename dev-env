@@ -1,2 +1,6 @@
 #! /bin/bash
-podman run  -it -v $(pwd):/home  -v ~:/root --hostuser=$(whoami)   -u=$(getent passwd $(whoami) | awk -F: '{print $3 }') --userns=keep-id --rm  dev-env $@
+
+HOME=${HOME}
+ME=$(whoami)
+GID=$(getent passwd $(whoami) | awk -F: '{print $4 }')
+podman run  -it -v $(pwd):/work  -v ${HOME}:${HOME} --userns=keep-id:uid=${UID},gid=${GID} --hostuser=${ME} --rm  dev-env $@
