@@ -1,3 +1,3 @@
 #! /bin/bash
 
-podman run  -it -v $(pwd):/work  -v ${HOME}:${HOME} --userns=keep-id --rm  dev-env $@
+podman run  -it --privileged -v $(pwd):/work  -v ${HOME}:${HOME} --userns=keep-id --rm  dev-env $@
