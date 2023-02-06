@@ -1,4 +1,8 @@
-transactional-update pkg install scout-command-not-found podman systemd-experimental systemd-portable python310-rpm git
+sudo transactional-update pkg install podman python310-rpm tar
+
+and reboot
+
+
 
 podman build . -t dev-env
 
@@ -9,3 +13,4 @@ dev-env
 
 in /etc/selinux/config
 SELINUX=permissive
+
