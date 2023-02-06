@@ -15,8 +15,8 @@ COPY label-uninstall /container
 
 WORKDIR /work
 
-LABEL INSTALL="/usr/bin/podman run --env IMAGE=IMAGE --rm --privileged -v \${PWD}/:/host IMAGE /bin/bash /container/label-install"
-LABEL UNINSTALL="/usr/bin/podman run --rm --privileged -v \${PWD}/:/host IMAGE /bin/bash /container/label-uninstall"
+LABEL INSTALL="/usr/bin/podman run --env IMAGE=IMAGE --rm --security-opt label=disable -v \${PWD}/:/host IMAGE /bin/bash /container/label-install"
+LABEL UNINSTALL="/usr/bin/podman run --rm --security-opt label=disable -v \${PWD}/:/host IMAGE /bin/bash /container/label-uninstall"
 
 ENTRYPOINT [ "/container/entrypoint.sh" ]
 CMD ["/bin/bash"]
