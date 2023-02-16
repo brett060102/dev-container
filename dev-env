@@ -1,3 +1,8 @@
 #! /bin/bash
 
-podman run  -it --security-opt label=disable -v $(pwd):/work  -v ${HOME}:${HOME} --userns=keep-id --rm  dev-env $@
+KEED_USERID=""
+if [[ $(id -ru) != "0" ]]; then
+    KEED_USERID="--userns=keep-id"
+fi
+
+podman run  -it --security-opt label=disable -v $(pwd):/work  -v ${HOME}:${HOME} ${KEED_USERID} --rm  dev-env "$@"
