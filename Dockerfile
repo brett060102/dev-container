@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: MIT
 # Define the tags for OBS and build script builds:
 #!BuildTag: suse/alp/workloads/dev-env:latest
-#!BuildTag: suse/alp/workloads/dev-env:0.1
-#!BuildTag: suse/alp/workloads/dev-env:0.1-%RELEASE%
+#!BuildTag: suse/alp/workloads/dev-env:%PKG_VERSION%.%TAG_OFFSET%
+#!BuildTag: suse/alp/workloads/dev-env:%PKG_VERSION%.%TAG_OFFSET%.%RELEASE%
 
 
 FROM opensuse/tumbleweed
