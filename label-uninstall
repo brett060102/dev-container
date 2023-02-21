@@ -1,13 +1,18 @@
 #!/bin/sh
 delete_file() {
 FILE=$1
-if [ -e "/host/bin/${FILE}" ]; then
-	/usr/bin/rm -vf /host/bin/${FILE}
-elif [ -e "/host/usr/local/bin/${FILE}" ]; then
+if [[ -e "/host/bin/${FILE}" || -L "/host/bin/${FILE}" ]]; then
+        /usr/bin/rm -vf /host/bin/${FILE}
+elif [[ -e "/host/usr/local/bin/${FILE}" || -L "/host/usr/local/bin/${FILE}" ]]; then
         /usr/bin/rm -vf /host/usr/local/bin/${FILE}
 else
-	echo "${FILE} not present, nothing to remove"
+        echo "${FILE} not present, nothing to remove"
 fi
 }
 
 delete_file dev-env
+delete_file dev-env-wrapper.sh
+delete_file osc
+delete_file emacs
+delete_file git
+
