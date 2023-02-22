@@ -46,6 +46,6 @@ LABEL UNINSTALL="/usr/bin/podman run --rm --security-opt label=disable -v \${PWD
 ENTRYPOINT [ "/container/entrypoint.sh" ]
 CMD ["/bin/bash"]
 
-RUN zypper -v -n in gcc libffi-devel python3 python3-pip wget ansible-core ansible sshpass openssh-clients git emacs emacs-nox scout-command-not-found vim tar bash-completion sudo osc obs-service-extract_file obs-service-tar_scm obs-service-verify_file  obs-service-source_validator obs-service-set_version  obs-service-recompress obs-service-obs_scm-common obs-service-obs_scm obs-service-format_spec_file obs-service-extract_file obs-service-download_files ; zypper clean --all
+RUN zypper -v -n in gcc libffi-devel python3 python3-pip wget sshpass openssh-clients git emacs emacs-nox scout-command-not-found vim tar bash-completion sudo osc obs-service-extract_file obs-service-tar_scm obs-service-verify_file  obs-service-source_validator obs-service-set_version  obs-service-recompress obs-service-obs_scm-common obs-service-obs_scm obs-service-format_spec_file obs-service-extract_file obs-service-download_files ; zypper clean --all
 
 
