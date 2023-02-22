@@ -30,8 +30,6 @@ ENV LC_ALL en_US.UTF-8
 RUN mkdir /container
 COPY entrypoint.sh /container/entrypoint.sh
 RUN chmod +x /container/entrypoint.sh
-COPY dev-env /container/dev-env
-RUN chmod +x /container/dev-env
 COPY dev-env-wrapper.sh /container/dev-env-wrapper.sh
 RUN chmod +x /container/dev-env-wrapper.sh
 COPY label-install /container

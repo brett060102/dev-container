@@ -17,6 +17,7 @@ fi
 COMMANDS="emacs \
 osc \
 git \
+dev-env \
 "
 
 # determime target directory
@@ -31,7 +32,6 @@ else
 fi
 
 cp /container/dev-env-wrapper.sh ${TARGET}/dev-env-wrapper.sh
-cp /container/dev-env ${TARGET}/dev-env
 
 for COMMAND in ${COMMANDS}; do
     create_command_bin ${COMMAND}
